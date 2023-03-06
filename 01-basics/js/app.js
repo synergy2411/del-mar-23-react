@@ -235,34 +235,95 @@
 
 // ARRAY FUNCTIONS
 
-let numbers = [101, 103, 104, 102, 108];
+// let numbers = [101, 103, 104, 102, 108];
 
-let newArray = numbers.map(function (value, index, array) {
-    // console.log(value, index, array);
-    return value + 10;
-})
+// let newArray = numbers.map(function (value, index, array) {
+//     // console.log(value, index, array);
+//     return value + 10;
+// })
 
-let addTen = numbers.map(value => value + 10)
+// let addTen = numbers.map(value => value + 10)
 
-// console.log("ADD TEN : ", addTen)
-// console.log("NEW ARRAY :", newArray);
+// // console.log("ADD TEN : ", addTen)
+// // console.log("NEW ARRAY :", newArray);
 
-let filteredArray = numbers.filter(val => val > 103)
-// console.log("FILTERED ARRAY : ", filteredArray);
+// let filteredArray = numbers.filter(val => val > 103)
+// // console.log("FILTERED ARRAY : ", filteredArray);
 
-let foundItem = numbers.find(val => val > 110)
-// console.log("FOUND ITEM : ", foundItem);
+// let foundItem = numbers.find(val => val > 110)
+// // console.log("FOUND ITEM : ", foundItem);
 
-let position = numbers.findIndex(val => val > 102)
-// console.log("INDEX VALUE : ", position);
+// let position = numbers.findIndex(val => val > 102)
+// // console.log("INDEX VALUE : ", position);
 
-// find, findIndex, forEach
+// // find, findIndex, forEach
 
-for (let val of numbers) {
-    console.log("VAL : ", val)
-}
+// for (let val of numbers) {
+//     console.log("VAL : ", val)
+// }
 
 
 // for (let key in window) {
 //     console.log(key)
 // }
+
+
+
+
+
+
+
+
+// DEFAULT
+
+// function demo(email = "test@test", age) {
+//     console.log(email, age)
+// }
+
+// demo("john@test")
+// demo(undefined, 21)
+
+
+
+// REST (...)
+// - creates collection from individual items
+// - has to be last argument of args list
+
+// const demo = (email, ...args) => {
+//     console.log(args[0]);           // ?
+// }
+
+// demo("test@test")
+// demo("test@test", 32)
+// demo("test@test", 32, true)
+
+
+
+// SPREAD (...)
+// - spread the collecion into individual item
+
+let friends = ["Ross", "Rachel", "Joe"];
+
+let moreFriends = ["Monica", "Chandler", ...friends];
+
+console.log(moreFriends);
+
+let userOne = { name: "James", age: 32 };
+
+let userTwo = { ...userOne, age: 21 }
+
+console.log(userTwo)
+
+
+// TEMPLATE LITERALS : " " | ' ' | ` ` (back tick)
+// - embed the variable within string without (+)
+// - multiline string without \n
+
+
+let username = "jenny doe";
+let age = 23;
+let str = ` Hello I Am ${username},
+    I'm ${age} years old!
+    `
+
+console.log(str);
