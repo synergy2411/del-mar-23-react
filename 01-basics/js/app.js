@@ -344,17 +344,17 @@
 // - rejected
 
 // producer code
-function demoPromise(ms) {
-    const promise = new Promise((resolved, rejected) => {
-        setTimeout(() => {
-            if (ms > 2000) {
-                rejected(new Error("Waiting too long"))
-            }
-            resolved({ data: "SUCCESS" })
-        }, ms);
-    })
-    return promise;
-}
+// function demoPromise(ms) {
+//     const promise = new Promise((resolved, rejected) => {
+//         setTimeout(() => {
+//             if (ms > 2000) {
+//                 rejected(new Error("Waiting too long"))
+//             }
+//             resolved({ data: "SUCCESS" })
+//         }, ms);
+//     })
+//     return promise;
+// }
 
 
 // consumer code
@@ -373,13 +373,62 @@ function demoPromise(ms) {
 
 // - Async...await
 
-async function promiseConsumer() {
-    try {
-        let response = await demoPromise(3000)
-        console.log("RESPONSE : ", response)
-    } catch (err) {
-        console.log(err)
+// async function promiseConsumer() {
+//     try {
+//         let response = await demoPromise(3000)
+//         console.log("RESPONSE : ", response)
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
+
+// promiseConsumer()
+
+
+
+
+
+
+// console.log("START")
+// setTimeout(() => { console.log("TIMER") }, 0)
+// Promise.resolve().then(() => console.log("RESOLVED"))
+// console.log("END")
+
+
+
+// SYNC
+// ASYNC
+// - MICRO - PROMISE(), QUEUEMICRO()
+// - MACRO - SETTIMEOUT
+
+
+// let nums = [2, 3, 4, 5, 6];
+
+// console.log("Hello".includes('xyz'))
+
+
+
+let employees = [
+    { empId: "e001", salary: 10000, name: "John" },
+    { empId: "e002", salary: 12000, name: "Jenny" },
+    { empId: "e003", salary: 14000, name: "James" },
+    { empId: "e004", salary: 20000, name: "Jill" },
+    { empId: "e005", salary: 8000, name: "Jack" },
+]
+
+let calculateAvgSalary = (employees) => {
+    let totSalary = 0;
+    for (let emp of employees) {
+        totSalary += emp.salary
     }
+    return totSalary / employees.length
 }
 
-promiseConsumer()
+let employeeEarningMoreThenAvgSalary = (avgSalary, employees) => {
+    return employees.filter(emp => emp.salary > avgSalary)
+}
+
+console.log("AVERAGE SALARY : ", calculateAvgSalary(employees))
+
+console.log("Employees earning more than average salary : ",
+    employeeEarningMoreThenAvgSalary(calculateAvgSalary(employees), employees))
