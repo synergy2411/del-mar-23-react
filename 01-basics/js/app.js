@@ -66,24 +66,24 @@
 
 
 // OBJECTS LITERALS
-let userOne = {
-    email: "test@test.com",
-    age: 32,
-    isAdmin: true,
-    friends: ["foo", "bar", "bam"],
-    address: {
-        city: "HYD",
-        street: "201, Main Road"
-    },
-    dob: new Date("Dec 20, 1998"),
-    getDetails: function () {
-        return this.email + " - " + this.age;
-    }
-}
+// let userOne = {
+//     email: "test@test.com",
+//     age: 32,
+//     isAdmin: true,
+//     friends: ["foo", "bar", "bam"],
+//     address: {
+//         city: "HYD",
+//         street: "201, Main Road"
+//     },
+//     dob: new Date("Dec 20, 1998"),
+//     getDetails: function () {
+//         return this.email + " - " + this.age;
+//     }
+// }
 
-console.log(userOne.getDetails());
+// console.log(userOne.getDetails());
 
-console.log(userOne.friends);
+// console.log(userOne.friends);
 
 // DESTRUCTURING : "unpacking the collection"
 
@@ -115,19 +115,20 @@ console.log(userOne.friends);
 
 
 
-let sum = (n1, n2) => {
-    return n1 + n2;
-}
+// let sum = (n1, n2) => {
+//     return n1 + n2;
+// }
 
-let mul = (n1, n2) => n1 * n2;
+// let mul = (n1, n2) => n1 * n2;
 
-let square = val => val * val;
+// let square = val => val * val;
 
-console.log(sum(12, 34))
+// console.log(sum(12, 34))
 
-console.log(mul(2, 3));
+// console.log(mul(2, 3));
 
-console.log(square(4))
+// console.log(square(4))
+
 
 // LIMITATION
 // - Does not have 'arguments' keyword
@@ -149,17 +150,17 @@ console.log(square(4))
 //         return dummy();
 //     }
 // }
-let userTwo = {
-    firstName: "john",
-    lastName: "doe",
-    getFullName: function () {
-        const dummy = () => this.firstName + " " + this.lastName;
-        return dummy();
-    }
-}
+// let userTwo = {
+//     firstName: "john",
+//     lastName: "doe",
+//     getFullName: function () {
+//         const dummy = () => this.firstName + " " + this.lastName;
+//         return dummy();
+//     }
+// }
 
 
-console.log(userTwo.getFullName());
+// console.log(userTwo.getFullName());
 
 
 // Scope Chaining
@@ -196,3 +197,72 @@ console.log(userTwo.getFullName());
 // demo("test@test")
 // demo("test@test", 32)
 // demo("test@test", 32, true)
+
+
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     walk() {
+//         return this.name + " is able to walk!"
+//     }
+// }
+
+// class Student extends Person {
+
+//     #studId;
+//     constructor(studId, studName) {
+//         super(studName);
+//         this.#studId = studId;
+//     }
+
+//     getDetails() {
+//         return this.#studId + ": " + super.studName;
+//     }
+
+//     walk() {
+//         return super.walk() + "Also can swim"
+//     }
+
+// }
+
+// let john = new Student("S001", "John Doe")
+
+// console.log(john.getDetails())
+// console.log(john.walk());
+
+
+
+// ARRAY FUNCTIONS
+
+let numbers = [101, 103, 104, 102, 108];
+
+let newArray = numbers.map(function (value, index, array) {
+    // console.log(value, index, array);
+    return value + 10;
+})
+
+let addTen = numbers.map(value => value + 10)
+
+// console.log("ADD TEN : ", addTen)
+// console.log("NEW ARRAY :", newArray);
+
+let filteredArray = numbers.filter(val => val > 103)
+// console.log("FILTERED ARRAY : ", filteredArray);
+
+let foundItem = numbers.find(val => val > 110)
+// console.log("FOUND ITEM : ", foundItem);
+
+let position = numbers.findIndex(val => val > 102)
+// console.log("INDEX VALUE : ", position);
+
+// find, findIndex, forEach
+
+for (let val of numbers) {
+    console.log("VAL : ", val)
+}
+
+
+// for (let key in window) {
+//     console.log(key)
+// }
