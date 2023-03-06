@@ -302,17 +302,17 @@
 // SPREAD (...)
 // - spread the collecion into individual item
 
-let friends = ["Ross", "Rachel", "Joe"];
+// let friends = ["Ross", "Rachel", "Joe"];
 
-let moreFriends = ["Monica", "Chandler", ...friends];
+// let moreFriends = ["Monica", "Chandler", ...friends];
 
-console.log(moreFriends);
+// console.log(moreFriends);
 
-let userOne = { name: "James", age: 32 };
+// let userOne = { name: "James", age: 32 };
 
-let userTwo = { ...userOne, age: 21 }
+// let userTwo = { ...userOne, age: 21 }
 
-console.log(userTwo)
+// console.log(userTwo)
 
 
 // TEMPLATE LITERALS : " " | ' ' | ` ` (back tick)
@@ -320,10 +320,66 @@ console.log(userTwo)
 // - multiline string without \n
 
 
-let username = "jenny doe";
-let age = 23;
-let str = ` Hello I Am ${username},
-    I'm ${age} years old!
-    `
+// let username = "jenny doe";
+// let age = 23;
+// let str = ` Hello I Am ${username},
+//     I'm ${age} years old!
+//     `
 
-console.log(str);
+// console.log(str);
+
+
+
+
+
+
+
+
+
+
+// PROMISE
+// - pending
+// - settled
+// - success / resolved
+// - rejected
+
+// producer code
+function demoPromise(ms) {
+    const promise = new Promise((resolved, rejected) => {
+        setTimeout(() => {
+            if (ms > 2000) {
+                rejected(new Error("Waiting too long"))
+            }
+            resolved({ data: "SUCCESS" })
+        }, ms);
+    })
+    return promise;
+}
+
+
+// consumer code
+// - then().catch()
+// function promiseConsumer() {
+//     demoPromise(1000)
+//         .then((response) => {
+//             console.log(response);
+//             return response.data
+//         })
+//         .then(result => console.log("RESULT : ", result))
+//         .catch(err => console.log("ERROR : ", err))
+// }
+
+// promiseConsumer()
+
+// - Async...await
+
+async function promiseConsumer() {
+    try {
+        let response = await demoPromise(3000)
+        console.log("RESPONSE : ", response)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+promiseConsumer()
