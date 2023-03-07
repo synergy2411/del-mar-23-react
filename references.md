@@ -73,3 +73,23 @@ NPM & modules
 - npm publish
 - npm config
 - npm search
+
+# Atomic Design in Web -
+
+- Atom : eg. a button, an input element etc
+- Molecules : comb of Atoms eg. search bar
+- Organism : comb of molecules eg. a form
+- Template : comb of organism eg. multiple card
+- Page: complete page
+
+# Thinking in React way
+
+> npm i create-react-app -g
+> create-react-app <app-name>
+
+> npx create-react-app <app-name>
+
+> npx create-react-app frontend
+
+> cd frontend
+> npm run start
