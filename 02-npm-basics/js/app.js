@@ -1,21 +1,25 @@
-import { square } from "./maths.js";
+// ES6 Module Pattern - Default in Browser
+import { square, sum } from "./maths";
+import { MAGIC_NUMBER } from "./fortune";
 
-
-const buttonEl = document.getElementById("btnGetUsername")
-// const txtEl = document.getElementById("username")
-const txtElNumber = document.getElementById("txt-number")
+const buttonEl = document.getElementById("btnAdd")
+const txtElNumber1 = document.getElementById("txt-number-one")
+const txtElNumber2 = document.getElementById("txt-number-two")
 
 buttonEl.addEventListener("click", function () {
-    // const squareValue = txtElNumber.value * 2;
 
-    const squareValue = square(txtElNumber.value)
+    // const squareValue = square(Number(txtElNumber.value))
+    let num1 = Number(txtElNumber1.value)
+    let num2 = Number(txtElNumber2.value)
+    const result = sum(num1, num2)
 
     const pEl = document.createElement("p")
+    const pElOne = document.createElement("p")
 
-    pEl.innerHTML = `Squaer Value : ${squareValue}`
+    pElOne.innerHTML = `Your lucky Number today will be === ${MAGIC_NUMBER}`
+    pEl.innerHTML = `Sum : ${result}`
 
     document.body.appendChild(pEl)
-
-    console.log("Username : ", txtElNumber.value)
+    document.body.appendChild(pElOne)
 
 })
