@@ -56,3 +56,20 @@ NPM & modules
 - Reference Types : Array, Object, Function, Date etc
 
 # let /const : restricts the variable to scope to the nearest block
+
+# Node installer
+
+- NPM : to manage project dependencies
+- NRE : to execute JavaScript at Server side
+- Native Modules : provides essential server side features
+
+# NPM Commands
+
+- npm init [-y] > to generate package.json file
+- npm install <package-name> [-g | -D]
+- npm uninstall <package-name>
+- npm outdated
+- npm update
+- npm publish
+- npm config
+- npm search
