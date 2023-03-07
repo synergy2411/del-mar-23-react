@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
 class Expenses extends Component {
   render() {
@@ -13,38 +14,21 @@ class Expenses extends Component {
         id: "e002",
         title: "food",
         amount: 19,
-        createdAt: new Date("Aug 2, 2022"),
+        createdAt: new Date("Aug 2, 2021"),
+      },
+      {
+        id: "e003",
+        title: "shopping",
+        amount: 249,
+        createdAt: new Date("Nov 12, 2020"),
       },
     ];
     return (
       <div className="container">
         <div className="row">
-          <div className="col-4">
-            <div className="card">
-              <div className="card-header">
-                <h6 className="text-center">
-                  {expenses[0].title.toUpperCase()}
-                </h6>
-              </div>
-              <div className="card-body">
-                <p>Amount : ${expenses[0].amount}</p>
-                <p>Created At : {expenses[0].createdAt.toLocaleString()}</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-4">
-            <div className="card">
-              <div className="card-header">
-                <h6 className="text-center">
-                  {expenses[1].title.toUpperCase()}
-                </h6>
-              </div>
-              <div className="card-body">
-                <p>Amount : ${expenses[1].amount}</p>
-                <p>Created At : {expenses[1].createdAt.toLocaleString()}</p>
-              </div>
-            </div>
-          </div>
+          <ExpenseItem exp={expenses[0]} />
+          <ExpenseItem exp={expenses[1]} />
+          <ExpenseItem exp={expenses[2]} />
         </div>
       </div>
     );
