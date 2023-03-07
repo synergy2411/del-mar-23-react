@@ -18,13 +18,34 @@ class Expenses extends Component {
     ];
     return (
       <div className="container">
-        <h6>{expenses[0].title.toUpperCase()}</h6>
-        <p>Amount : ${expenses[0].amount}</p>
-        <p>Created At : {expenses[0].createdAt.toLocaleString()}</p>
-
-        <h6>{expenses[1].title.toUpperCase()}</h6>
-        <p>Amount : ${expenses[1].amount}</p>
-        <p>Created At : {expenses[1].createdAt.toLocaleString()}</p>
+        <div className="row">
+          <div className="col-4">
+            <div className="card">
+              <div className="card-header">
+                <h6 className="text-center">
+                  {expenses[0].title.toUpperCase()}
+                </h6>
+              </div>
+              <div className="card-body">
+                <p>Amount : ${expenses[0].amount}</p>
+                <p>Created At : {expenses[0].createdAt.toLocaleString()}</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-4">
+            <div className="card">
+              <div className="card-header">
+                <h6 className="text-center">
+                  {expenses[1].title.toUpperCase()}
+                </h6>
+              </div>
+              <div className="card-body">
+                <p>Amount : ${expenses[1].amount}</p>
+                <p>Created At : {expenses[1].createdAt.toLocaleString()}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
