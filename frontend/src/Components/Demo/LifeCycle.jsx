@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class LifeCycle extends Component {
   constructor() {
@@ -6,16 +7,21 @@ class LifeCycle extends Component {
     console.log("constructor");
     this.state = {
       toggle: false,
+      posts: [],
     };
   }
   componentDidMount() {
     console.log("componentDidMount");
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => this.setState({ posts: response.data }))
+      .catch(console.error);
   }
-  shouldComponentUpdate() {
-    const rnd = Math.round(Math.random() * 10);
-    console.log("shouldComponentUpdate", rnd);
-    return rnd > 5 ? true : false;
-  }
+  //   shouldComponentUpdate() {
+  //     const rnd = Math.round(Math.random() * 10);
+  //     console.log("shouldComponentUpdate", rnd);
+  //     return rnd > 5 ? true : false;
+  //   }
   componentDidUpdate() {
     console.log("componentDidUpdate");
   }
@@ -34,6 +40,9 @@ class LifeCycle extends Component {
           Toggle
         </button>
         {this.state.toggle && <p>Toggled</p>}
+        <ul>
+          <li>{this.state.posts.length > 0 && this.state.posts[0].title}</li>
+        </ul>
       </div>
     );
   }
