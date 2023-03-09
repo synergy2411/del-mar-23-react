@@ -17,11 +17,12 @@ class LifeCycle extends Component {
       .then((response) => this.setState({ posts: response.data }))
       .catch(console.error);
   }
-  //   shouldComponentUpdate() {
-  //     const rnd = Math.round(Math.random() * 10);
-  //     console.log("shouldComponentUpdate", rnd);
-  //     return rnd > 5 ? true : false;
-  //   }
+  shouldComponentUpdate() {
+    //   const rnd = Math.round(Math.random() * 10);
+    //   console.log("shouldComponentUpdate", rnd);
+    //   return rnd > 5 ? true : false;
+    return true;
+  }
   componentDidUpdate() {
     console.log("componentDidUpdate");
   }
@@ -43,7 +44,7 @@ class LifeCycle extends Component {
         {this.state.toggle && <p>Toggled</p>}
         <ul>
           {this.state.posts.map((post) => (
-            <li>{post.title}</li>
+            <li key={post.id}>{post.title}</li>
           ))}
         </ul>
       </div>

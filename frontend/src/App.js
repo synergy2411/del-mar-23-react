@@ -10,10 +10,7 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
-        <button onClick={() => this.setState({ toggle: !this.state.toggle })} className="btn btn-success">
-          Show Component</button>
-        {this.state.toggle && <LifeCycle />}
-        {/* <Expenses /> */}
+        <Expenses />
       </div>
     );
   }
@@ -21,3 +18,7 @@ class App extends Component {
 
 export default App;
 
+// eslint-disable-next-line no-lone-blocks
+{/* <button onClick={() => this.setState({ toggle: !this.state.toggle })} className="btn btn-success">
+Show Component</button>
+{this.state.toggle && <LifeCycle />} */}
