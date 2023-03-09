@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 } from "uuid";
 
 class ExpenseForm extends Component {
   state = {
@@ -14,6 +15,17 @@ class ExpenseForm extends Component {
   createdAtChangeHandler = (event) =>
     this.setState({ enteredCreatedAt: event.target.value });
 
+  addClickHandler = (event) => {
+    event.preventDefault();
+    const { enteredTitle, enteredAmount, enteredCreatedAt } = this.state;
+    let newExpense = {
+      id: v4(),
+      title: enteredTitle,
+      amount: Number(enteredAmount),
+      createdAt: new Date(enteredCreatedAt),
+    };
+    console.log(newExpense);
+  };
   render() {
     return (
       <div className="row">
@@ -63,7 +75,12 @@ class ExpenseForm extends Component {
                   <div className="row">
                     <div className="col">
                       <div className="d-grid">
-                        <button className="btn btn-primary">Add</button>
+                        <button
+                          className="btn btn-primary"
+                          onClick={this.addClickHandler}
+                        >
+                          Add
+                        </button>
                       </div>
                     </div>
                     <div className="col">
