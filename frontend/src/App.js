@@ -12,9 +12,9 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
-        <Parent />
+        {/* <Parent /> */}
         {/* <Auth /> */}
-        {/* <Expenses /> */}
+        <Expenses />
       </div>
     );
   }

@@ -1,3 +1,4 @@
+import ExpenseCurrency from "../ExpenseCurrency/ExpenseCurrency";
 import ExpenseDate from "../ExpenseDate/ExpenseDate";
 
 function ExpenseItem(props) {
@@ -8,7 +9,8 @@ function ExpenseItem(props) {
           <h6 className="text-center">{props.exp.title.toUpperCase()}</h6>
         </div>
         <div className="card-body">
-          <p>Amount : ${props.exp.amount}</p>
+          <ExpenseCurrency amount={props.exp.amount} />
+          {/* <p>Amount : ${props.exp.amount}</p> */}
           {/* <p>Created At : {props.exp.createdAt.toLocaleString()}</p> */}
           <ExpenseDate createdAt={props.exp.createdAt} />
         </div>
