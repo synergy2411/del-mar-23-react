@@ -12,6 +12,11 @@ class Expenses extends Component {
     this.setState({ toggle: !this.state.toggle });
     // this.state.toggle = !this.state.toggle;          // NEVER EVER CHANGE STATE MUTATIVELY
   };
+
+  onAddNewExpense = (expense) => {
+    console.log("[PARENT]", expense);
+  };
+
   render() {
     let expenses = [
       {
@@ -45,7 +50,9 @@ class Expenses extends Component {
           </div>
         </div>
 
-        {this.state.toggle && <ExpenseForm />}
+        {this.state.toggle && (
+          <ExpenseForm addNewExpense={this.onAddNewExpense} />
+        )}
 
         <div className="row">
           <ExpenseItem exp={expenses[0]} />

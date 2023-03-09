@@ -24,7 +24,7 @@ class ExpenseForm extends Component {
       amount: Number(enteredAmount),
       createdAt: new Date(enteredCreatedAt),
     };
-    console.log(newExpense);
+    this.props.addNewExpense(newExpense);
   };
   render() {
     return (
