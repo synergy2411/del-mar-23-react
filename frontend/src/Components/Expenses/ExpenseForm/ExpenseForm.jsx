@@ -26,6 +26,9 @@ class ExpenseForm extends Component {
     };
     this.props.addNewExpense(newExpense);
   };
+
+  onCancelClickHandler = () => this.props.onCancelForm();
+
   render() {
     return (
       <div className="row">
@@ -85,7 +88,12 @@ class ExpenseForm extends Component {
                     </div>
                     <div className="col">
                       <div className="d-grid">
-                        <button className="btn btn-light">Cancel</button>
+                        <button
+                          className="btn btn-light"
+                          onClick={this.onCancelClickHandler}
+                        >
+                          Cancel
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -3,6 +3,7 @@ import Expenses from './Components/Expenses/Expenses';
 
 
 import React, { Component } from 'react';
+import Auth from './Components/Demo/auth';
 
 class App extends Component {
   state = { toggle: true }
@@ -10,7 +11,8 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
-        <Expenses />
+        <Auth />
+        {/* <Expenses /> */}
       </div>
     );
   }

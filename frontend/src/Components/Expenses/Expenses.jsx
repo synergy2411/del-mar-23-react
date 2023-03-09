@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ExpenseForm from "./ExpenseForm/ExpenseForm";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
-let INTIAL_EXPENSES = [
+let INITIAL_EXPENSES = [
   {
     id: "e001",
     title: "travelling",
@@ -22,11 +22,10 @@ let INTIAL_EXPENSES = [
     createdAt: new Date("Nov 12, 2020"),
   },
 ];
-
 class Expenses extends Component {
   state = {
     toggle: false,
-    expenses: INTIAL_EXPENSES,
+    expenses: INITIAL_EXPENSES,
   };
 
   showClickHandler = () => {
@@ -35,12 +34,13 @@ class Expenses extends Component {
   };
 
   onAddNewExpense = (expense) => {
-    console.log("[PARENT]", expense);
     this.setState({
       expenses: [expense, ...this.state.expenses],
     });
     this.setState({ toggle: !this.state.toggle });
   };
+
+  onCancelForm = () => this.setState({ toggle: false });
 
   render() {
     return (
@@ -56,7 +56,10 @@ class Expenses extends Component {
         </div>
 
         {this.state.toggle && (
-          <ExpenseForm addNewExpense={this.onAddNewExpense} />
+          <ExpenseForm
+            addNewExpense={this.onAddNewExpense}
+            onCancelForm={this.onCancelForm}
+          />
         )}
 
         <div className="row">
