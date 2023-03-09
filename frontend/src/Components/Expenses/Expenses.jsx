@@ -2,42 +2,47 @@ import React, { Component } from "react";
 import ExpenseForm from "./ExpenseForm/ExpenseForm";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
+let INTIAL_EXPENSES = [
+  {
+    id: "e001",
+    title: "travelling",
+    amount: 199,
+    createdAt: new Date("Dec 20, 2022"),
+  },
+  {
+    id: "e002",
+    title: "food",
+    amount: 19,
+    createdAt: new Date("Aug 2, 2021"),
+  },
+  {
+    id: "e003",
+    title: "shopping",
+    amount: 249,
+    createdAt: new Date("Nov 12, 2020"),
+  },
+];
+
 class Expenses extends Component {
   state = {
     toggle: false,
+    expenses: INTIAL_EXPENSES,
   };
 
   showClickHandler = () => {
-    console.log("Clicked");
     this.setState({ toggle: !this.state.toggle });
     // this.state.toggle = !this.state.toggle;          // NEVER EVER CHANGE STATE MUTATIVELY
   };
 
   onAddNewExpense = (expense) => {
     console.log("[PARENT]", expense);
+    this.setState({
+      expenses: [expense, ...this.state.expenses],
+    });
+    this.setState({ toggle: !this.state.toggle });
   };
 
   render() {
-    let expenses = [
-      {
-        id: "e001",
-        title: "travelling",
-        amount: 199,
-        createdAt: new Date("Dec 20, 2022"),
-      },
-      {
-        id: "e002",
-        title: "food",
-        amount: 19,
-        createdAt: new Date("Aug 2, 2021"),
-      },
-      {
-        id: "e003",
-        title: "shopping",
-        amount: 249,
-        createdAt: new Date("Nov 12, 2020"),
-      },
-    ];
     return (
       <div className="container">
         <div className="row">
@@ -55,9 +60,9 @@ class Expenses extends Component {
         )}
 
         <div className="row">
-          <ExpenseItem exp={expenses[0]} />
-          <ExpenseItem exp={expenses[1]} />
-          <ExpenseItem exp={expenses[2]} />
+          {this.state.expenses.map((expense) => (
+            <ExpenseItem key={expense.id} exp={expense} />
+          ))}
         </div>
       </div>
     );
