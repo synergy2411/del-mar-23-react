@@ -4,6 +4,7 @@ import Expenses from './Components/Expenses/Expenses';
 
 import React, { Component } from 'react';
 import Auth from './Components/Demo/auth';
+import Parent from './Components/Demo/Parent';
 
 class App extends Component {
   state = { toggle: true }
@@ -11,7 +12,8 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
-        <Auth />
+        <Parent />
+        {/* <Auth /> */}
         {/* <Expenses /> */}
       </div>
     );

@@ -1,0 +1,14 @@
+.my-btn {
+  background-color: #fff;
+  color: rgb(87, 31, 31);
+  border-radius: 5px;
+  padding: 0 8px;
+  margin: 0 8px;
+  box-shadow: none;
+  transition: all 0.3s ease-in;
+}
+
+.my-btn:hover {
+  background-color: #444;
+  color: #fff;
+}
