@@ -33,6 +33,7 @@ class LifeCycle extends Component {
 
   render() {
     console.log("render");
+
     return (
       <div>
         <h4>Life cycle Demo</h4>
@@ -41,7 +42,9 @@ class LifeCycle extends Component {
         </button>
         {this.state.toggle && <p>Toggled</p>}
         <ul>
-          <li>{this.state.posts.length > 0 && this.state.posts[0].title}</li>
+          {this.state.posts.map((post) => (
+            <li>{post.title}</li>
+          ))}
         </ul>
       </div>
     );
