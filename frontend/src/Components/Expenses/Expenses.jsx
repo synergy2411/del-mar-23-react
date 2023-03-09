@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ExpenseForm from "./ExpenseForm/ExpenseForm";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
 class Expenses extends Component {
@@ -38,13 +39,13 @@ class Expenses extends Component {
           <div className="col-4 offset-4 mb-3">
             <div className="d-grid">
               <button className="btn btn-dark" onClick={this.showClickHandler}>
-                Show/Hide
+                {this.state.toggle ? "Hide" : "Show"}
               </button>
             </div>
           </div>
         </div>
 
-        {this.state.toggle && <p>This content will be toggled</p>}
+        {this.state.toggle && <ExpenseForm />}
 
         <div className="row">
           <ExpenseItem exp={expenses[0]} />
