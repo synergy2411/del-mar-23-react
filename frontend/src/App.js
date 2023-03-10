@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import Auth from './Components/Demo/auth';
 import Parent from './Components/Demo/Parent';
 import AuthContext from './context/auth-context';
+import UseStateDemo from './Components/Demo/UseStateDemo';
 
 class App extends Component {
   state = { toggle: true, isLoggedIn: false }
@@ -16,11 +17,12 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
+        <UseStateDemo />
         {/* <Parent /> */}
-        <AuthContext.Provider value={{ isLoggedIn: this.state.isLoggedIn, setIsLoggedIn: this.changeLogin }}>
+        {/* <AuthContext.Provider value={{ isLoggedIn: this.state.isLoggedIn, setIsLoggedIn: this.changeLogin }}>
           <Auth />
           <Expenses />
-        </AuthContext.Provider>
+        </AuthContext.Provider> */}
       </div>
     );
   }
