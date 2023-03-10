@@ -93,3 +93,16 @@ NPM & modules
 
 > cd frontend
 > npm run start
+
+- State
+- Lifting up the state
+- Life cycle : 3 phases Mounting , Updating, Unmounting
+- Forms - Controlled and uncontrolled (Ref)
+- Form element validation & error message
+- PureComponent
+- Default Props
+- Wrapper Component / UI Component
+
+- Context API
+- Hooks (functional component)
+- React Routing

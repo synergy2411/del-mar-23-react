@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AuthContext from "../../../context/auth-context";
 
 class ExpenseCurrency extends Component {
   render() {
@@ -7,7 +8,16 @@ class ExpenseCurrency extends Component {
       style: "currency",
     });
     const amount = formatter.format(this.props.amount);
-    return <p>Amount : {amount}</p>;
+    return (
+      <AuthContext.Consumer>
+        {(context) => {
+          console.log("CONTEXT : ", context);
+          return context.isLoggedIn && <p>Amount : {amount} </p>;
+        }}
+      </AuthContext.Consumer>
+    );
+
+    // ;
   }
 }
 
