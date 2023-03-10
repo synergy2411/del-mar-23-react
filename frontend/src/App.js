@@ -7,6 +7,7 @@ import Auth from './Components/Demo/auth';
 import Parent from './Components/Demo/Parent';
 import AuthContext from './context/auth-context';
 import UseStateDemo from './Components/Demo/UseStateDemo';
+import UseEffectDemo from './Components/Demo/UseEffectDemo';
 
 class App extends Component {
   state = { toggle: true, isLoggedIn: false }
@@ -17,7 +18,9 @@ class App extends Component {
     return (
       <div>
         <h1>My Awesome App</h1>
-        <UseStateDemo />
+        <UseEffectDemo />
+
+        {/* <UseStateDemo /> */}
         {/* <Parent /> */}
         {/* <AuthContext.Provider value={{ isLoggedIn: this.state.isLoggedIn, setIsLoggedIn: this.changeLogin }}>
           <Auth />

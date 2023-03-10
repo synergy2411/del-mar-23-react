@@ -106,3 +106,24 @@ NPM & modules
 - Context API
 - Hooks (functional component)
 - React Routing
+
+# useEffect(callbackFn)
+
+- cb will run at initial rendering of component
+- cb will re-run for each re-rendering of component eg. State Change
+
+# useEffect(callbackFn , []) - componentDidMount
+
+- cb will run ONLY at initial rendering of component (only one time)
+
+# useEffect(callbackFn , [Dependencies]) - componentDidUpdate
+
+- cb will run at initial rendering of component
+- cb will re-run whenever the mentioned dependency will change
+
+# useEffect(callbackFn => cleanUpFn , [Dependencies])
+
+- cb will run at initial rendering of component
+- cb will re-run whenever the mentioned dependency will change
+- before the cb re-run, the cleanUpFn will run
+- cleanUpFn will also run when component is about to unload (componentWillUnmount)
