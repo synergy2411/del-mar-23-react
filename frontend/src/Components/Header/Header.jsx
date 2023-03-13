@@ -20,6 +20,11 @@ const Header = () => {
             Products
           </Link>
         </li>
+        <li className="nav-items">
+          <Link className="nav-link" to="/counter">
+            Counter
+          </Link>
+        </li>
       </ul>
     </div>
   );

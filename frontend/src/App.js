@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Auth from './Components/Demo/auth';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import Header from './Components/Header/Header';
+import Counter from './Components/Counter/Counter';
 
 const ProductList = React.lazy(() => import('./Components/ProductList/ProductList'));
 const ProductItem = React.lazy(() => import('./Components/ProductItem/ProductItem'));
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path='/auth' element={<Auth />} />
             <Route path='/life-cycle' element={<LifeCycle />} />
             <Route path='/use-effect-demo' element={<UseEffectDemo />} />
+            <Route path='/counter' element={<Counter />} />
             <Route path='/product-list/*' element={<ProductList />}>
               {/* http://localhost:3000/product-list/p003 */}
               <Route path=':productId' element={<ProductItem />} />
