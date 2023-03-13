@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "p001",
+      "name": "iphone14",
+      "company": "Apple",
+      "price": 1999
+    },
+    {
+      "id": "p002",
+      "name": "S23",
+      "company": "Samsung",
+      "price": 999
+    },
+    {
+      "id": "p003",
+      "name": "V121",
+      "company": "Vivo",
+      "price": 899
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import UseStateDemo from './Components/Demo/UseStateDemo';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import UseContextDemo from './Components/Demo/useContextDemo';
 import Header from './Components/Header/Header';
+import ProductList from './Components/ProductList/ProductList';
 
 class App extends Component {
   state = { toggle: true, isLoggedIn: false }
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path='/auth' element={<Auth />} />
           <Route path='/life-cycle' element={<LifeCycle />} />
           <Route path='/use-effect-demo' element={<UseEffectDemo />} />
+          <Route path='/product-list' element={<ProductList />} />
         </Routes>
       </div>
     );

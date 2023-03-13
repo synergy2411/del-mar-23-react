@@ -15,6 +15,11 @@ const Header = () => {
             Expenses
           </Link>
         </li>
+        <li className="nav-items">
+          <Link className="nav-link" to="/product-list">
+            Products
+          </Link>
+        </li>
       </ul>
     </div>
   );
