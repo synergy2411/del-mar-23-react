@@ -1,12 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import classes from "./ProductList.module.css";
+
+const sortProduct = (products, isAscending) => {
+  if (isAscending) {
+    return products.sort((a, b) => {
+      if (a.company > b.company) {
+        return 1;
+      } else if (a.company < b.company) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    return products.sort((a, b) => {
+      if (a.company > b.company) {
+        return -1;
+      } else if (a.company < b.company) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+};
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const query = new URLSearchParams(location.search); // Provide query parameters from URL
+
+  const isAscending = query.get("order") === "asc";
 
   useEffect(() => {
     axios
@@ -20,11 +49,27 @@ const ProductList = () => {
   const onCardSelectHandler = (productId) => {
     navigate("/product-list/" + productId);
   };
+
+  const sortClickHandler = () => {
+    navigate(`/product-list?order=${isAscending ? "desc" : "asc"}`);
+  };
+
+  const sortedProducts = sortProduct(products, isAscending);
+
   return (
     <div>
-      {products.length > 0 && (
+      <div className="row mb-3">
+        <div className="offset-4 col-4">
+          <div className="d-grid">
+            <button className="btn btn-secondary" onClick={sortClickHandler}>
+              Sort {isAscending ? "Decending" : "Ascending"}
+            </button>
+          </div>
+        </div>
+      </div>
+      {sortedProducts.length > 0 && (
         <div className="row">
-          {products.map((product) => (
+          {sortedProducts.map((product) => (
             <div className="col-4" key={product.id}>
               <div
                 className={`card ${classes["clickable"]}`}

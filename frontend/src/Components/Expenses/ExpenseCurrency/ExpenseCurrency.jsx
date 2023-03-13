@@ -11,7 +11,6 @@ class ExpenseCurrency extends Component {
     return (
       <AuthContext.Consumer>
         {(context) => {
-          console.log("CONTEXT : ", context);
           return context.isLoggedIn && <p>Amount : {amount} </p>;
         }}
       </AuthContext.Consumer>
