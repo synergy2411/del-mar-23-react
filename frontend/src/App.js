@@ -12,6 +12,7 @@ import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import UseContextDemo from './Components/Demo/useContextDemo';
 import Header from './Components/Header/Header';
 import ProductList from './Components/ProductList/ProductList';
+import ProductItem from './Components/ProductItem/ProductItem';
 
 class App extends Component {
   state = { toggle: true, isLoggedIn: false }
@@ -28,7 +29,10 @@ class App extends Component {
           <Route path='/auth' element={<Auth />} />
           <Route path='/life-cycle' element={<LifeCycle />} />
           <Route path='/use-effect-demo' element={<UseEffectDemo />} />
-          <Route path='/product-list' element={<ProductList />} />
+          <Route path='/product-list/*' element={<ProductList />}>
+            {/* http://localhost:3000/product-list/p003 */}
+            <Route path=':productId' element={<ProductItem />} />
+          </Route>
         </Routes>
       </div>
     );
