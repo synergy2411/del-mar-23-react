@@ -22,6 +22,11 @@ function rootReducer(state = initialState, action) {
                 counter: state.counter + action.payload
             }
         }
+        case fromActions.SUBTRACT_COUNTER: {
+            return {
+                counter: state.counter - action.payload
+            }
+        }
         default:
             return state;
     }

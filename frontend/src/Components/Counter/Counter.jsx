@@ -25,7 +25,13 @@ const Counter = () => {
         className="btn btn-success"
         onClick={() => dispatch(fromActions.onAddCounter(10))}
       >
-        Decrease
+        Add (10)
+      </button>
+      <button
+        className="btn btn-warning"
+        onClick={() => dispatch(fromActions.onSubractCounter(5))}
+      >
+        Subtract (5)
       </button>
     </div>
   );
