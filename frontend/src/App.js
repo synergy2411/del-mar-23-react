@@ -3,13 +3,9 @@ import LifeCycle from './Components/Demo/LifeCycle';
 
 
 import React, { Component, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Auth from './Components/Demo/auth';
-import Parent from './Components/Demo/Parent';
-import AuthContext from './context/auth-context';
-import UseStateDemo from './Components/Demo/UseStateDemo';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
-import UseContextDemo from './Components/Demo/useContextDemo';
 import Header from './Components/Header/Header';
 
 const ProductList = React.lazy(() => import('./Components/ProductList/ProductList'));
