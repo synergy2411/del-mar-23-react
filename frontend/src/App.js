@@ -1,8 +1,8 @@
 import LifeCycle from './Components/Demo/LifeCycle';
-import Expenses from './Components/Expenses/Expenses';
+// import Expenses from './Components/Expenses/Expenses';
 
 
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Auth from './Components/Demo/auth';
 import Parent from './Components/Demo/Parent';
@@ -11,8 +11,11 @@ import UseStateDemo from './Components/Demo/UseStateDemo';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import UseContextDemo from './Components/Demo/useContextDemo';
 import Header from './Components/Header/Header';
-import ProductList from './Components/ProductList/ProductList';
-import ProductItem from './Components/ProductItem/ProductItem';
+
+const ProductList = React.lazy(() => import('./Components/ProductList/ProductList'));
+const ProductItem = React.lazy(() => import('./Components/ProductItem/ProductItem'));
+const Expenses = React.lazy(() => import("./Components/Expenses/Expenses"))
+
 
 class App extends Component {
   state = { toggle: true, isLoggedIn: false }
@@ -24,16 +27,18 @@ class App extends Component {
       <div className='container'>
         <Header />
         <h1>My Awesome App</h1>
-        <Routes>
-          <Route path='/expenses' element={<Expenses />} />
-          <Route path='/auth' element={<Auth />} />
-          <Route path='/life-cycle' element={<LifeCycle />} />
-          <Route path='/use-effect-demo' element={<UseEffectDemo />} />
-          <Route path='/product-list/*' element={<ProductList />}>
-            {/* http://localhost:3000/product-list/p003 */}
-            <Route path=':productId' element={<ProductItem />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={<h3>Loading...</h3>}>
+          <Routes>
+            <Route path='/expenses' element={<Expenses />} />
+            <Route path='/auth' element={<Auth />} />
+            <Route path='/life-cycle' element={<LifeCycle />} />
+            <Route path='/use-effect-demo' element={<UseEffectDemo />} />
+            <Route path='/product-list/*' element={<ProductList />}>
+              {/* http://localhost:3000/product-list/p003 */}
+              <Route path=':productId' element={<ProductItem />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </div>
     );
   }

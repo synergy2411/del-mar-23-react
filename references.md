@@ -127,3 +127,19 @@ NPM & modules
 - cb will re-run whenever the mentioned dependency will change
 - before the cb re-run, the cleanUpFn will run
 - cleanUpFn will also run when component is about to unload (componentWillUnmount)
+
+# Routing
+
+- BrowserRouter
+- Routes
+- Route
+- Link
+- useNavigate() : programatically navigating the user
+- useLocation() : used for accessing the URL location; Query Paramters
+- useParams() : provide the access of route parameter.
+- Outlet : provide the space to load child component UI
+
+http://localhost:3000/products/p001 --> Route Parameters / dynamic parameter
+http://localhost:3000/products?key=value --> querystring ; additional info to URL
+
+ProductList -> ProductItem

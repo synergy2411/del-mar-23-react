@@ -6,7 +6,7 @@ const ProductItem = () => {
   console.log("Product ID : ", productId);
   return (
     <div>
-      <h5>product citem coming soon...</h5>
+      <h5>product item coming soon...</h5>
     </div>
   );
 };
