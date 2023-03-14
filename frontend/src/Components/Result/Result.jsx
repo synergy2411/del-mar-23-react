@@ -37,8 +37,8 @@ class Result extends Component {
 // map the redux store state with the props of the connected component
 const mapStateToProps = (state) => {
   return {
-    result: state.result,
-    counter: state.counter,
+    result: state.res.result,
+    counter: state.ctr.counter,
   };
 };
 

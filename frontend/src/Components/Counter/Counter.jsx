@@ -4,7 +4,7 @@ import * as fromActions from "../../store/actions/rootActions";
 import Result from "../Result/Result";
 
 const Counter = () => {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.ctr.counter);
   const dispatch = useDispatch();
 
   const increaseClickHandler = () => dispatch(fromActions.onIncrement());
