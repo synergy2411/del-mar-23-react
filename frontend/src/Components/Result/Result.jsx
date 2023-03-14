@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as fromActions from "../../store/actions/rootActions";
+import classes from "./Result.module.css";
 
 class Result extends Component {
   render() {
@@ -18,7 +19,13 @@ class Result extends Component {
           </div>
           <ul className="list-group">
             {this.props.result.map((r, i) => (
-              <li key={i}>{r}</li>
+              <li
+                className={`list-group-item mb-2 ${classes["clickable"]}`}
+                key={i}
+                onClick={() => this.props.onDeleteResult(i)}
+              >
+                {r}
+              </li>
             ))}
           </ul>
         </div>
@@ -39,6 +46,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onStoreResult: (ctr) => dispatch(fromActions.onStoreResult(ctr)),
+    onDeleteResult: (index) => dispatch(fromActions.onDeleteResult(index)),
   };
 };
 

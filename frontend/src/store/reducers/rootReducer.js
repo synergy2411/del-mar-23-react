@@ -9,10 +9,11 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case fromActions.INCREMENT: {
-            return {
+            let newState = {
                 ...state,           // { result, counter }
                 counter: state.counter + 1
             }
+            return newState;
         }
         case fromActions.DECREMENT: {
             return {
@@ -36,6 +37,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 result: [action.payload, ...state.result]
+            }
+        }
+        case fromActions.DELETE_RESULT: {
+            return {
+                ...state,
+                result: state.result.filter((val, ind) => ind !== action.payload)
             }
         }
         default:

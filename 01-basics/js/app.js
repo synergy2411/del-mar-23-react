@@ -302,17 +302,17 @@
 // SPREAD (...)
 // - spread the collecion into individual item
 
-// let friends = ["Ross", "Rachel", "Joe"];
+let friends = ["Ross", "Rachel", "Joe"];
 
-// let moreFriends = ["Monica", "Chandler", ...friends];
+let moreFriends = ["Monica", "Chandler", ...friends];
 
-// console.log(moreFriends);
+console.log(moreFriends);
 
-// let userOne = { name: "James", age: 32 };
+let userOne = { name: "James", age: 32 };
 
-// let userTwo = { ...userOne, age: 21 }
+let userTwo = { ...userOne, age: 21 }
 
-// console.log(userTwo)
+console.log(userTwo)
 
 
 // TEMPLATE LITERALS : " " | ' ' | ` ` (back tick)
