@@ -8,6 +8,8 @@ import Auth from './Components/Demo/auth';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import Header from './Components/Header/Header';
 import Counter from './Components/Counter/Counter';
+import DemoError from './Components/Demo/DemoError';
+import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary';
 
 const ProductList = React.lazy(() => import('./Components/ProductList/ProductList'));
 const ProductItem = React.lazy(() => import('./Components/ProductItem/ProductItem'));
@@ -24,6 +26,11 @@ class App extends Component {
       <div className='container'>
         <Header />
         <h1>My Awesome App</h1>
+        <ErrorBoundary>
+          <DemoError />
+        </ErrorBoundary>
+        <hr />
+
         <Suspense fallback={<h3>Loading...</h3>}>
           <Routes>
             <Route path="/" element={<Navigate to="/auth" />} />
