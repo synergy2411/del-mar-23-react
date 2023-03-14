@@ -9,6 +9,17 @@ export const DELETE_RESULT = "DELETE_RESULT"
 
 // Action Creators
 
+// Async Action Creator
+export function asyncAddCounter(value) {
+    return function (dispatch) {
+        // write any side effect code here
+        setTimeout(() => {
+            dispatch(onAddCounter(value))
+        }, 2000)
+    }
+}
+
+
 export function onDeleteResult(index) {
     return {
         type: DELETE_RESULT,

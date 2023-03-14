@@ -24,7 +24,7 @@ const Counter = () => {
       </button>
       <button
         className="btn btn-success"
-        onClick={() => dispatch(fromActions.onAddCounter(10))}
+        onClick={() => dispatch(fromActions.asyncAddCounter(10))}
       >
         Add (10)
       </button>
