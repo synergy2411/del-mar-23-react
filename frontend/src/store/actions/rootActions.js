@@ -3,8 +3,17 @@ export const DECREMENT = "DECREMENT"
 export const ADD_COUNTER = "ADD_COUNTER"
 export const SUBTRACT_COUNTER = "SUBTRACT_COUNTER"
 
+export const STORE_RESULT = "STORE_RESULT"
+
 
 // Action Creators
+
+export function onStoreResult(counter) {
+    return {
+        type: STORE_RESULT,
+        payload: counter
+    }
+}
 
 export function onSubractCounter(value) {
     return {

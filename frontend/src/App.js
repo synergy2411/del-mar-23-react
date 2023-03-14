@@ -3,7 +3,7 @@ import LifeCycle from './Components/Demo/LifeCycle';
 
 
 import React, { Component, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Auth from './Components/Demo/auth';
 import UseEffectDemo from './Components/Demo/UseEffectDemo';
 import Header from './Components/Header/Header';
@@ -26,8 +26,9 @@ class App extends Component {
         <h1>My Awesome App</h1>
         <Suspense fallback={<h3>Loading...</h3>}>
           <Routes>
-            <Route path='/expenses' element={<Expenses />} />
+            <Route path="/" element={<Navigate to="/auth" />} />
             <Route path='/auth' element={<Auth />} />
+            <Route path='/expenses' element={<Expenses />} />
             <Route path='/life-cycle' element={<LifeCycle />} />
             <Route path='/use-effect-demo' element={<UseEffectDemo />} />
             <Route path='/counter' element={<Counter />} />
