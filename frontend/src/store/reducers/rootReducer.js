@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import counterReducer from './counterReducer';
 import resultReducer from './resultReducer';
+import { userLoginReducer } from './userLoginReducer';
 
 const rootReducer = combineReducers({
     ctr: counterReducer,
-    res: resultReducer
+    res: resultReducer,
+    auth: userLoginReducer
 })
 
 export default rootReducer
