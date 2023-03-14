@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 import classes from "./ProductList.module.css";
+import { useSelector } from "react-redux";
 
 const sortProduct = (products, isAscending) => {
   if (isAscending) {
@@ -30,21 +31,28 @@ const sortProduct = (products, isAscending) => {
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
+  const { token } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token !== null) {
+      axios
+        .get(
+          "https://deloitte-react-mar23-default-rtdb.firebaseio.com/products.json?auth=" +
+            token
+        )
+        .then((resp) => setProducts(resp.data))
+        .catch(console.error);
+    } else {
+      navigate("/auth");
+    }
+  }, [token, navigate]);
 
   const location = useLocation();
   const query = new URLSearchParams(location.search); // Provide query parameters from URL
 
   const isAscending = query.get("order") === "asc";
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://deloitte-react-mar23-default-rtdb.firebaseio.com/products.json"
-      )
-      .then((resp) => setProducts(resp.data))
-      .catch(console.error);
-  }, []);
 
   const onCardSelectHandler = (productId) => {
     navigate("/product-list/" + productId);

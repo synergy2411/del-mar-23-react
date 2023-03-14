@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 import * as fromActions from "../../store/actions/rootActions";
 
 // import AuthContext from "../../context/auth-context";
@@ -7,7 +8,7 @@ import * as fromActions from "../../store/actions/rootActions";
 class Auth extends Component {
   usernameInputRef = createRef();
 
-  state = { enteredPassword: "", error: false };
+  state = { enteredPassword: "", error: false, userIsValid: false };
 
   componentDidMount() {
     if (this.props.token !== null) {
@@ -35,6 +36,7 @@ class Auth extends Component {
     );
     // console.log("Username :", this.usernameInputRef.current.value);s
     this.setState({ error: false });
+    this.setState({ userIsValid: true });
   };
 
   onRegister = () => {
@@ -42,8 +44,12 @@ class Auth extends Component {
       this.usernameInputRef.current.value,
       this.state.enteredPassword
     );
+    this.setState({ userIsValid: true });
   };
   render() {
+    if (this.state.userIsValid && this.props.token !== null) {
+      return <Navigate to="/product-list" />;
+    }
     return (
       <div className="row">
         <div className="col-6 offset-3">
