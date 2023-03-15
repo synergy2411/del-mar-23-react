@@ -7,6 +7,10 @@ const FeelingForm = () => {
   const [showAlert, setShowAlert] = useState(false);
   const { token } = useSelector((state) => state);
 
+  const [select, setSelect] = useState("");
+
+  const selectChangeHandler = (event) => setSelect(event.target.value);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,9 +54,13 @@ const FeelingForm = () => {
                 <div className="row mb-4">
                   <div className="col-6 mb-4">
                     <p>Where did it happened ?</p>
+                    <p>Select Value : {select}</p>
                   </div>
                   <div className="col-6">
-                    <select className="form-control form-control-sm">
+                    <select
+                      className="form-control form-control-sm"
+                      onChange={selectChangeHandler}
+                    >
                       <option value="home">At Home</option>
                       <option value="home">At Work</option>
                       <option value="home">At Market</option>
