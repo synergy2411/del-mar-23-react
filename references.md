@@ -145,3 +145,12 @@ http://localhost:3000/products?key=value --> querystring ; additional info to UR
 ProductList -> ProductItem
 
 # React Router - react-router-dom
+
+# npm run build
+
+# Commands to Deploy on Firebase
+
+- npm i firebase-tools -g
+- firebase login
+- firebase init
+- firebase deploy
