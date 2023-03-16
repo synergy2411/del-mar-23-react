@@ -22,9 +22,11 @@ export function onUserLogin(email, password) {
 
     return dispatch => {
         dispatch({ type: USER_LOGIN_START });
-        signInWithEmailAndPassword(auth, email, password)
-            .then(({ user }) => dispatch(onUserLoginSuccess(user.accessToken)))
-            .catch(({ code }) => dispatch(onUserLoginFailure(code)))
+        setTimeout(() => {
+            signInWithEmailAndPassword(auth, email, password)
+                .then(({ user }) => dispatch(onUserLoginSuccess(user.accessToken)))
+                .catch(({ code }) => dispatch(onUserLoginFailure(code)))
+        }, 2000)
     }
 }
 export function onUserRegister(email, password) {

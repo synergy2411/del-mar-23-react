@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector } from 'react-redux';
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Auth from "./Components/Auth/Auth";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";

@@ -3,10 +3,9 @@ import * as fromActions from '../actions/rootActions';
 const initialState = {
     token: null,
     isLoading: '',
-    error: ''
+    error: ""
 }
 export function rootReducer(state = initialState, action) {
-    console.log(action)
     switch (action.type) {
         case fromActions.USER_LOGIN_START: {
             return {
@@ -30,8 +29,9 @@ export function rootReducer(state = initialState, action) {
         }
         case fromActions.USER_LOGOUT: {
             return {
-                ...state,
-                token: null
+                token: null,
+                error: '',
+                isLoading: false
             }
         }
         default: return state

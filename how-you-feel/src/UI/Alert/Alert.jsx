@@ -1,10 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import classes from "./Alert.module.css";
+import * as fromActions from "../../store/actions/rootActions";
 
 const Alert = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const btnClickHandler = () => {
+    dispatch(fromActions.onUserLogout());
     setTimeout(() => {
       navigate("/auth");
     }, 1200);

@@ -10,8 +10,14 @@
 .my-style {
   position: fixed;
   left: 25vw;
-  top: 25vh;
+  top: 10vh;
   width: 50vw;
   background-color: #fff;
   z-index: 75%;
+}
+.invalid-label {
+  color: red;
+}
+.invalid-label::before {
+  content: "*";
 }
