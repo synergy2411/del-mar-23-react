@@ -408,27 +408,53 @@ console.log(userTwo)
 
 
 
-let employees = [
-    { empId: "e001", salary: 10000, name: "John" },
-    { empId: "e002", salary: 12000, name: "Jenny" },
-    { empId: "e003", salary: 14000, name: "James" },
-    { empId: "e004", salary: 20000, name: "Jill" },
-    { empId: "e005", salary: 8000, name: "Jack" },
+// let employees = [
+//     { empId: "e001", salary: 10000, name: "John" },
+//     { empId: "e002", salary: 12000, name: "Jenny" },
+//     { empId: "e003", salary: 14000, name: "James" },
+//     { empId: "e004", salary: 20000, name: "Jill" },
+//     { empId: "e005", salary: 8000, name: "Jack" },
+// ]
+
+// let calculateAvgSalary = (employees) => {
+//     let totSalary = 0;
+//     for (let emp of employees) {
+//         totSalary += emp.salary
+//     }
+//     return totSalary / employees.length
+// }
+
+// let employeeEarningMoreThenAvgSalary = (avgSalary, employees) => {
+//     return employees.filter(emp => emp.salary > avgSalary)
+// }
+
+// console.log("AVERAGE SALARY : ", calculateAvgSalary(employees))
+
+// console.log("Employees earning more than average salary : ",
+//     employeeEarningMoreThenAvgSalary(calculateAvgSalary(employees), employees))
+
+
+
+let selectValue = "fun";
+
+const Quotes = [
+    {
+        id: "q001",
+        category: "fun",
+        text: "have a great day"
+    }, {
+        id: "q002",
+        category: "health",
+        text: "run 5 miles"
+    }, {
+        id: "q003",
+        category: "fun",
+        text: "dinner tonight"
+    },
 ]
 
-let calculateAvgSalary = (employees) => {
-    let totSalary = 0;
-    for (let emp of employees) {
-        totSalary += emp.salary
-    }
-    return totSalary / employees.length
-}
+const filteredQuotes = Quotes.filter((quote) => quote.category === selectValue)
 
-let employeeEarningMoreThenAvgSalary = (avgSalary, employees) => {
-    return employees.filter(emp => emp.salary > avgSalary)
-}
+console.log(filteredQuotes)
 
-console.log("AVERAGE SALARY : ", calculateAvgSalary(employees))
-
-console.log("Employees earning more than average salary : ",
-    employeeEarningMoreThenAvgSalary(calculateAvgSalary(employees), employees))
+filteredQuotes.forEach(q => console.log("Quote of the day : ", q.text))

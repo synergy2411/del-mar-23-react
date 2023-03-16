@@ -60,11 +60,12 @@ const FeelingForm = () => {
                     <select
                       className="form-control form-control-sm"
                       onChange={selectChangeHandler}
+                      value={select}
                     >
                       <option value="home">At Home</option>
-                      <option value="home">At Work</option>
-                      <option value="home">At Market</option>
-                      <option value="home">At School</option>
+                      <option value="work">At Work</option>
+                      <option value="market">At Market</option>
+                      <option value="school">At School</option>
                     </select>
                   </div>
                 </div>

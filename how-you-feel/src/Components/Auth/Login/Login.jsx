@@ -8,6 +8,41 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [emailIsBlurred, setEmailIsBlurred] = useState(false);
+  const [emailIsValid, setEmailIsValid] = useState(false);
+
+  const [passwordIsValid, setPasswordIsValid] = useState(false);
+  const [passwordIsBlurred, setPasswordIsBlurred] = useState(false);
+
+  const [formIsValid, setFormIsValid] = useState(false);
+
+  useEffect(() => {
+    if (!email.includes("@")) {
+      return setEmailIsValid(false);
+    }
+    if (email.trim() === "") {
+      return setEmailIsValid(false);
+    }
+    setEmailIsValid(true);
+  }, [email]);
+
+  useEffect(() => {
+    if (password.length < 6) {
+      return setPasswordIsValid(false);
+    }
+    setPasswordIsValid(true);
+  }, [password]);
+
+  let emailIsInvalid = !emailIsValid && emailIsBlurred;
+  let passwordIsInvalid = !passwordIsValid && passwordIsBlurred;
+
+  useEffect(() => {
+    if (emailIsValid && passwordIsValid) {
+      return setFormIsValid(true);
+    }
+    setFormIsValid(false);
+  }, [emailIsValid, passwordIsValid]);
+
   const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state);
@@ -26,6 +61,7 @@ const Login = () => {
     event.preventDefault();
     dispatch(fromActions.onUserLogin(email, password));
   };
+
   return (
     <div className={classes["backdrop"]}>
       <div className={`card ${classes["my-style"]}`}>
@@ -41,7 +77,13 @@ const Login = () => {
                   className="form-control form-control-sm"
                   value={email}
                   onChange={emailChangeHandler}
+                  onBlur={() => setEmailIsBlurred(true)}
                 />
+                {emailIsInvalid && (
+                  <p className="alert alert-danger">
+                    Email Field is not valid. Try Again!
+                  </p>
+                )}
               </div>
               {/* password */}
               <div className="form-group mb-3">
@@ -51,13 +93,23 @@ const Login = () => {
                   className="form-control form-control-sm"
                   value={password}
                   onChange={passwordChangeHandler}
+                  onBlur={() => setPasswordIsBlurred(true)}
                 />
+                {passwordIsInvalid && (
+                  <p className="alert alert-danger">
+                    Password Field is not valid. Try Again!
+                  </p>
+                )}
               </div>
               {/* buttons */}
               <div className="row">
                 <div className="col-6 offset-3">
                   <div className="d-grid">
-                    <button className="btn btn-success btn-sm" type="submit">
+                    <button
+                      className="btn btn-success btn-sm"
+                      type="submit"
+                      disabled={!formIsValid}
+                    >
                       Login
                     </button>
                   </div>
